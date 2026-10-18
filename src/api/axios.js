@@ -1,12 +1,16 @@
 import axios from 'axios';
 
+// Variable ko object ke bahar declare karo
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api/v1',
+  baseURL: BASE_URL, // Yahan key 'baseURL' (small b, camelCase) honi chahiye
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
 });
+
 
 // Request Interceptor
 api.interceptors.request.use((config) => {
